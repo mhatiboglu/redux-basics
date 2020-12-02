@@ -23,17 +23,27 @@ export const add = (value) => {
     value: value,
   };
 };
+
 export const sub = (value) => {
   return {
     type: SUB,
     value: value,
   };
 };
-export const storeResult = (res) => {
+
+export const saveResult = (res) => {
   return {
     type: STORE_RESULT,
     result: res,
   };
+};
+export const storeResult = (res) => {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(saveResult(res));
+    }, 2000);
+  };
+  
 };
 export const deleteResult = (resElId) => {
   return {
